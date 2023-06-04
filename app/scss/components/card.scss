@@ -1,5 +1,96 @@
 @use "../util" as *;
 
 .card{
-  padding: rem(20);
+  background: var(--dark-card);
+  color: var(--dark-text2);
+  width: rem(255);
+  border-radius: rem(5);
+  text-align: center;
+  padding: rem(25);
+  &--facebook {
+    border-top: rem(5) solid var(--facebook);
+  }
+
+  &--twitter {
+
+  }
+
+  &--instagram {
+
+  }
+
+  &--youtube {
+
+  }
+  &__platform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: rem(28);
+  }
+  &__icon {
+    margin-right: rem(8);
+    &--facebook {
+
+    }
+
+    &--twitter {
+
+    }
+
+    &--instagram {
+
+    }
+
+    &--youtube {
+
+    }
+  }
+  &__username{
+    font-size: rem(12);
+    font-weight: bold;
+  }
+
+  &__count{
+    color: white;
+    font-size: rem(56);
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: rem(-2);
+    margin-bottom: rem(4);
+    &--big{
+
+    }
+    &--small{
+
+    }
+  }
+
+  &__label{
+    font-size: rem(12);
+    color: var(--dark-text1);
+    font-weight: normal;
+    letter-spacing: rem(5);
+    text-transform: uppercase;
+
+  }
+  &__followers{
+    margin-bottom: rem(25);
+  }
+  &__change{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(4);
+    font-size: rem(12);
+    font-weight: bold;
+    letter-spacing: rem(3);
+    letter-spacing: normal;
+    &--up{
+      color: var(--limegreen);
+    }
+    &--down{
+      color: var(--brightred);
+    }
+  }
 }
