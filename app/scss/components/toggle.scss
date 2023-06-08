@@ -3,16 +3,14 @@
 .toggle{
   border: none;
   display: grid;
-  grid-template-columns: 1fr rem(60) 1fr;
+  grid-template-columns: 1fr rem(48);
   grid-template-rows: repeat(2,24px);
   gap: rem(4.8) rem(13);
   &__wrapper{
+    position: relative;
     height: rem(24);
-    width: rem(72);
     grid-column: 2/3;
     grid-row: 1/2;
-    position: relative;
-    justify-self: center;
   }
   label{
     font-size: rem(14);
@@ -21,12 +19,6 @@
       grid-column: 1/2;
       grid-row: 1/2;
       justify-self: end;
-    }
-    &[for="system"] {
-      grid-column: 1/4;
-      grid-row: 2/3;
-      justify-self: center;
-      align-self: start;
     }
     &[for="light"]{
       grid-column: 3/4;
@@ -38,10 +30,13 @@
     opacity: 0;
     margin: 0 -2px 0 -2px;
     cursor: pointer;
-    height: 100%;
-    width: calc(100%/3);
+    height: rem(24);
+    width: rem(24);
     z-index: 1;
     position: relative;
+    &:focus ~ .toggle__button {
+      border: 2px solid var(--toggle-bg-end);
+    }
   }
   &__background{
     display: block;
@@ -54,10 +49,7 @@
     left: 0;
     z-index: 0;
     overflow: hidden;
-    background: linear-gradient(
-                    225deg,
-                    var(--toggle-bg-end) 0%,
-            var(--toggle-bg-start) 98.02%);
+    background: var(--toggle-bg);
     pointer-events: none;
   }
 
@@ -70,18 +62,13 @@
     right: 100%;
     width: rem(18);
     height: rem(18);
-    background-color: var(--dark-bg);
+    background-color: var(--toggle-button);
     transition: all 0.1s ease-out;
     z-index: 2;
   }
   #light:checked ~.toggle__button{
     right: rem(3);
     left:calc(100% - 21px);
-  }
-  #system:checked~.toggle__button{
-    right: auto;
-    left: 50%;
-    transform: translate(-50%);
   }
 }
 

@@ -1,58 +1,92 @@
 @use "../util" as *;
 
+.cards {
+  margin: 0 auto rem(46);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(30);
+  flex-wrap: wrap;
+
+  @include breakpoint(medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint(large) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 .card{
-  background: var(--dark-card);
-  color: var(--dark-text2);
-  width: rem(255);
+  position: relative;
+  overflow: hidden;
+  background: var(--card);
+  color: var(--text2);
+  width: 100%;
   border-radius: rem(5);
   text-align: center;
   padding: rem(25);
+  cursor: pointer;
+  transition: background 150ms ease-in-out;
+  &:hover{
+    background: var(--card-hover);
+  }
+
   &--facebook {
     border-top: rem(5) solid var(--facebook);
   }
 
   &--twitter {
+    border-top: rem(5) solid var(--twitter);
 
   }
 
   &--instagram {
-
+    padding-top: rem(30);
+    &::before{
+      content:'';
+      height: rem(5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(225deg,var(--instagram-end) 0%, var(--instagram-mid) 50.91%,var(--instagram-start) 100%);
+    }
   }
 
   &--youtube {
-
+    border-top: rem(5) solid var(--youtube);
   }
   &__platform {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: rem(5);
     margin-bottom: rem(28);
+    height: rem(20);
   }
   &__icon {
     margin-right: rem(8);
     &--facebook {
-
     }
-
     &--twitter {
-
     }
-
     &--instagram {
-
     }
-
     &--youtube {
-
     }
   }
   &__username{
     font-size: rem(12);
     font-weight: bold;
   }
+  &__subtitle{
+    font-size: rem(14);
+    font-weight: 700;
+    color: var(--text1);
+  }
 
   &__count{
-    color: white;
+    color: var(--text2);
     font-size: rem(56);
     font-weight: bold;
     line-height: 1;
@@ -62,13 +96,13 @@
 
     }
     &--small{
-
+      font-size: rem(32);
     }
   }
 
   &__label{
     font-size: rem(12);
-    color: var(--dark-text1);
+    color: var(--text1);
     font-weight: normal;
     letter-spacing: rem(5);
     text-transform: uppercase;
@@ -84,7 +118,6 @@
     gap: rem(4);
     font-size: rem(12);
     font-weight: bold;
-    letter-spacing: rem(3);
     letter-spacing: normal;
     &--up{
       color: var(--limegreen);
@@ -94,3 +127,4 @@
     }
   }
 }
+

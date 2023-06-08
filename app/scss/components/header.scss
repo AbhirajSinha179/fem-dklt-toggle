@@ -13,7 +13,12 @@
 
   &__title{
     width: 100%;
+    padding-bottom: rem(30);
+    border-bottom: 3px solid var(--text1);
+    margin-bottom: rem(20);
     @include breakpoint(medium){
+      border: none;
+      padding: 0;
       width: auto;
     }
   }
@@ -21,6 +26,6 @@
   &__subtitle{
     font-size: rem(14);
     font-weight: 700;
-    color: var(--dark-text1);
+    color: var(--text1);
   }
 }
