@@ -7,7 +7,7 @@ h3{
 }
 h1{
   @include breakpoint(large){
-    font-size: rem(28);
+    font-size: rem(28,16);
   }
   font-size: rem(24);
   margin-bottom: rem(3);
